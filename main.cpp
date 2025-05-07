@@ -107,7 +107,7 @@ void guardarEnArchivo(Nodo a){
     }
     file << tareas.dump(3) << endl;
     file.close();
-    cout << "Se exportaron las tareas";
+    cout << "Se exportaron las tareas" << endl;
 }
 
 Nodo cargarDesdeArchivo(Nodo a){

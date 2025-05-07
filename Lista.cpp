@@ -53,7 +53,7 @@ class Nodo{
 
         int prioridadAlta() {
           if (empty()){
-            return 1000000000;
+            return 999999999;
           }else{
             int alta = cabeza->prioridad;
             return alta;
