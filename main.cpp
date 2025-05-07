@@ -5,17 +5,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-int leerInt() {
-    int n;
-    cin >> n;
-    while (cin.fail() || n < 0){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "Valor invalido. Intente de nuevo: " ;
-        cin >> n;
-    }
-    return n;
-}
+
 void mostrarTareas(Nodo a){
     a.mostrar();
 }
@@ -86,17 +76,14 @@ Nodo editarTarea(Nodo a) {
 }
 
 void guardarEnArchivo(Nodo a){
-    ofstream file("Data.json");
-
     if (a.empty()) {
-        file.close();
-        cout << "La lista esta vacia, no hat nada para exportar" << endl;
+        cout << "La lista esta vacia, no hay nada para exportar" << endl;
         return;
     }
-
+    ofstream file("Data.json");
     json tareas = json::array();
     Nodo *aux = a.cabeza;
-    while (aux != NULL) {
+    while (aux != nullptr) {
         json tarea = {
             {"prioridad",aux -> prioridad},
             {"nombre", aux -> nombre},

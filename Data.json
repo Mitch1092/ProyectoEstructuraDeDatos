@@ -1,22 +1,7 @@
 [
-  {
-    "descripcion": "Ducharse hoy al llegar de la escuela",
-    "nombre": "Banarse",
-    "prioridad": 1
-  },
-  {
-    "descripcion": "Lavar los trastes despues de cocinar",
-    "nombre": "Lavar trastes",
-    "prioridad": 1
-  },
-  {
-    "descripcion": "",
-    "nombre": "Pasear al perro",
-    "prioridad": 2
-  },
-  {
-    "descripcion": "Cocinar la cena de hoy",
-    "nombre": "Cocinar",
-    "prioridad": 3
-  }
+   {
+      "descripcion": "sfdsfaa",
+      "nombre": "dad",
+      "prioridad": 4
+   }
 ]
