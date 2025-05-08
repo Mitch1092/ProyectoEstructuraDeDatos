@@ -78,10 +78,8 @@ class Nodo{
             return;
           }
           Nodo * aux = cola;
-          do{
-            aux = aux->ant;
-          }while (prioridad <= aux -> ant -> prioridad);
-          while(prioridad == aux -> prioridad) {
+
+          while(prioridad <= aux -> prioridad) {
             aux = aux -> ant;
           }
           nuevo -> sig = aux -> sig;
