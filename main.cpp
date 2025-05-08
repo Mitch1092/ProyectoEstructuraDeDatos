@@ -12,6 +12,9 @@ void mostrarTareas(Nodo a){
 
 Nodo eliminarTarea(Nodo a){
     a.mostrar();
+    if (a.empty()) {
+        return a;
+    }
     int posicion;
     cout << "Selecciona la tarea a eliminar o '0' para regresar: ";
     cin >> posicion;
@@ -52,6 +55,9 @@ Nodo agregarTarea(Nodo a){
 
 Nodo editarTarea(Nodo a) {
     a.mostrar();
+    if (a.empty()) {
+        return a;
+    }
     int posicion, prioridad;
     string nombre, descripcion;
     cout << "Selecciona la tarea a modificar o '0' para regresar: ";

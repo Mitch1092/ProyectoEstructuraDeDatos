@@ -69,7 +69,7 @@ class Nodo{
           Nodo * nuevo = new Nodo(prioridad, nombre, descripcion);
           if(prioridad <= prioridadAlta()){
             nuevo -> sig = cabeza;
-            if(cabeza != NULL){
+            if(cabeza != nullptr){
               cabeza -> ant = nuevo;
               cabeza = nuevo;
             }else{
@@ -98,28 +98,28 @@ class Nodo{
           Nodo * aux = cabeza;
           if (posicion == 1){
             cabeza = cabeza -> sig;
-            if (cabeza != NULL){
-              cabeza -> ant = NULL;
+            if (cabeza != nullptr){
+              cabeza -> ant = nullptr;
             }else{
-              cola=NULL;
+              cola=nullptr;
             }
             delete aux;
             cout << "Se elimino la tarea en la posicion " << posicion << "." << endl;
             return;
           }
           int contador = 1;
-          while (aux != NULL && contador < posicion){
+          while (aux != nullptr && contador < posicion){
             aux = aux -> sig;
             ++contador;
           }
-          if (aux==NULL){
+          if (aux==nullptr){
             cout << "La posicion esta fuera de rango" << endl;
             return;
           }
-          if(aux -> sig != NULL){
+          if(aux -> sig != nullptr){
             aux -> sig -> ant = aux -> ant;
           }
-          if(aux -> ant != NULL){
+          if(aux -> ant != nullptr){
             aux -> ant -> sig = aux -> sig;
           }
           if(aux == cola){
@@ -136,7 +136,7 @@ class Nodo{
           }
           int cont = 1;
           Nodo * aux = cabeza;
-          while (aux != NULL){
+          while (aux != nullptr){
             cout << cont << ".  Prioridad: " << aux -> prioridad << "  Tarea:  " << aux -> nombre << ".  " << aux -> descripcion << endl;
             aux = aux -> sig;
             ++cont;
@@ -156,28 +156,28 @@ class Nodo{
             prioridad = cabeza -> prioridad;
             nombre = cabeza -> nombre;
             cabeza = cabeza -> sig;
-            if (cabeza != NULL){
-              cabeza -> ant = NULL;
+            if (cabeza != nullptr){
+              cabeza -> ant = nullptr;
             }else{
-              cola=NULL;
+              cola=nullptr;
             }
             delete aux;
           }else {
             int contador = 1;
-            while (aux != NULL && contador < posicion){
+            while (aux != nullptr && contador < posicion){
               aux = aux -> sig;
               ++contador;
             }
-            if (aux==NULL){
+            if (aux==nullptr){
               cout << "La tarea no existe" << endl;
               return;
             }
             prioridad = aux -> prioridad;
             nombre = aux -> nombre;
-            if(aux -> sig != NULL){
+            if(aux -> sig != nullptr){
               aux -> sig -> ant = aux -> ant;
             }
-            if(aux -> ant != NULL){
+            if(aux -> ant != nullptr){
               aux -> ant -> sig = aux -> sig;
             }
             if(aux == cola){
@@ -200,28 +200,28 @@ class Nodo{
             prioridad = cabeza -> prioridad;
             descripcion = cabeza -> descripcion;
             cabeza = cabeza -> sig;
-            if (cabeza != NULL){
-              cabeza -> ant = NULL;
+            if (cabeza != nullptr){
+              cabeza -> ant = nullptr;
             }else{
-              cola=NULL;
+              cola=nullptr;
             }
             delete aux;
           }else {
             int contador = 1;
-            while (aux != NULL && contador < posicion){
+            while (aux != nullptr && contador < posicion){
               aux = aux -> sig;
               ++contador;
             }
-            if (aux==NULL){
+            if (aux==nullptr){
               cout << "La tarea no existe" << endl;
               return;
             }
             prioridad = aux -> prioridad;
             descripcion = aux -> descripcion;
-            if(aux -> sig != NULL){
+            if(aux -> sig != nullptr){
               aux -> sig -> ant = aux -> ant;
             }
-            if(aux -> ant != NULL){
+            if(aux -> ant != nullptr){
               aux -> ant -> sig = aux -> sig;
             }
             if(aux == cola){
@@ -243,28 +243,28 @@ class Nodo{
             nombre = cabeza -> nombre;
             descripcion = cabeza -> descripcion;
             cabeza = cabeza -> sig;
-            if (cabeza != NULL){
-              cabeza -> ant = NULL;
+            if (cabeza != nullptr){
+              cabeza -> ant = nullptr;
             }else{
-              cola=NULL;
+              cola=nullptr;
             }
             delete aux;
           }else {
             int contador = 1;
-            while (aux != NULL && contador < posicion){
+            while (aux != nullptr && contador < posicion){
               aux = aux -> sig;
               ++contador;
             }
-            if (aux==NULL){
+            if (aux==nullptr){
               cout << "La tarea no existe" << endl;
               return;
             }
             nombre = aux -> nombre;
             descripcion = aux -> descripcion;
-            if(aux -> sig != NULL){
+            if(aux -> sig != nullptr){
               aux -> sig -> ant = aux -> ant;
             }
-            if(aux -> ant != NULL){
+            if(aux -> ant != nullptr){
               aux -> ant -> sig = aux -> sig;
             }
             if(aux == cola){
@@ -281,7 +281,7 @@ class Nodo{
           }else{
             Nodo * aux = cabeza;
             int contador = 0;
-            while (aux != NULL){
+            while (aux != nullptr){
               contador++;
               aux = aux->sig;
             }
@@ -292,7 +292,7 @@ class Nodo{
         void destruir(){
           Nodo * aux = cabeza;
           Nodo * sig;
-          while(aux!=NULL){
+          while(aux!=nullptr){
             sig = aux ->sig;
             delete aux;
             aux = sig;
