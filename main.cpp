@@ -49,9 +49,11 @@ Nodo agregarTarea(Nodo a){
     return a;
 }
 
+
 Nodo editarTarea(Nodo a) {
     a.mostrar();
     int posicion, prioridad;
+    string nombre, descripcion;
     cout << "Selecciona la tarea a modificar o '0' para regresar: ";
     cin >> posicion;
     while (cin.fail() || posicion > a.numeroNodos() || posicion < 0){
@@ -63,15 +65,52 @@ Nodo editarTarea(Nodo a) {
     if (posicion == 0) {
         return a;
     }
-    cout << "Nueva prioridad: ";
-    cin >> prioridad;
-    while (cin.fail() || prioridad < 0){
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout << "Valor invalido. Intente de nuevo: " ;
-        cin >> prioridad;
-    }
-    a.editar(posicion, prioridad);
+    int b;
+    do {
+        cout << "\nSelecciona una opcion:" << endl;
+        cout << "1. Editar prioridad" << endl;
+        cout << "2. Editar nombre" << endl;
+        cout << "3. Editar descripcion" << endl;
+        cout << "4. Regresar" << endl;
+        cout << "Opcion:  ";
+        cin >> b;
+        while (cin.fail() || b > 4 || b < 1){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            cout << "Valor invalido. Intente de nuevo: " ;
+            cin >> b;
+        }
+        switch(b){
+            case 1:
+                cout << "Nueva prioridad: ";
+                cin >> prioridad;
+                while (cin.fail() || prioridad < 0){
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                    cout << "Valor invalido. Intente de nuevo: " ;
+                    cin >> prioridad;
+                }
+                a.editarPrioridad(posicion, prioridad);
+                break;
+            case 2:
+                cout << "Nuevo nombre: ";
+                cin.ignore();
+                getline(cin, nombre, '\n');
+                a.editarNombre(posicion, nombre);
+                break;
+            case 3:
+                cout << "Nueva descripcion: ";
+                cin.ignore();
+                getline(cin, descripcion, '\n');
+                a.editarDescripcion(posicion, descripcion);
+                break;
+            case 4:
+                return a;
+            default:
+                cout << "Valor invalido." << endl;
+                break;
+        }
+    }while (b != 4);
     return a;
 }
 
@@ -126,7 +165,7 @@ void menu(Nodo nodo){
         cout << "\nSelecciona una opcion:" << endl;
         cout << "1. Mostrar lista de tareas" << endl;
         cout << "2. Agregar tarea" << endl;
-        cout << "3. Cambiar prioridad de tarea" << endl;
+        cout << "3. Editar tarea" << endl;
         cout << "4. Eliminar tarea" << endl;
         cout << "5. Importar tareas" << endl;
         cout << "6. Exportar tareas" << endl;

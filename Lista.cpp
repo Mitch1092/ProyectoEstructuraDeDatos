@@ -75,19 +75,20 @@ class Nodo{
             }else{
               cola = cabeza;
             }
-
             return;
           }
-          Nodo * aux = cabeza;
-          while (aux != NULL && prioridad <= aux -> sig -> prioridad){
-            aux = aux->sig;
+          Nodo * aux = cola;
+          do{
+            aux = aux->ant;
+          }while (prioridad <= aux -> ant -> prioridad);
+          while(prioridad == aux -> prioridad) {
+            aux = aux -> ant;
           }
           nuevo -> sig = aux -> sig;
           nuevo -> ant = aux;
+          aux -> sig -> ant = nuevo;
           aux -> sig = nuevo;
-          if(aux -> sig != NULL){
-            nuevo -> sig -> ant = nuevo;
-          }
+
 
         }
 
@@ -145,7 +146,95 @@ class Nodo{
           cout << endl;
         }
 
-        void editar(int posicion, int prioridad) {
+        void editarDescripcion(int posicion, string descripcion) {
+          string nombre;
+          int prioridad;
+          if(empty()){
+            cout << "La lista esta vacia." << endl;
+            return;
+          }
+          Nodo * aux = cabeza;
+          if (posicion == 1){
+            prioridad = cabeza -> prioridad;
+            nombre = cabeza -> nombre;
+            cabeza = cabeza -> sig;
+            if (cabeza != NULL){
+              cabeza -> ant = NULL;
+            }else{
+              cola=NULL;
+            }
+            delete aux;
+            return;
+          }
+          int contador = 1;
+          while (aux != NULL && contador < posicion){
+            aux = aux -> sig;
+            ++contador;
+          }
+          if (aux==NULL){
+            cout << "La tarea no existe" << endl;
+            return;
+          }
+          prioridad = aux -> prioridad;
+          nombre = aux -> nombre;
+          if(aux -> sig != NULL){
+            aux -> sig -> ant = aux -> ant;
+          }
+          if(aux -> ant != NULL){
+            aux -> ant -> sig = aux -> sig;
+          }
+          if(aux == cola){
+            cola = cola -> ant;
+          }
+          delete aux;
+          insertar(prioridad,nombre,descripcion);
+        }
+
+        void editarNombre(int posicion, string nombre) {
+          string descripcion;
+          int prioridad;
+          if(empty()){
+            cout << "La lista esta vacia." << endl;
+            return;
+          }
+          Nodo * aux = cabeza;
+          if (posicion == 1){
+            prioridad = cabeza -> prioridad;
+            descripcion = cabeza -> descripcion;
+            cabeza = cabeza -> sig;
+            if (cabeza != NULL){
+              cabeza -> ant = NULL;
+            }else{
+              cola=NULL;
+            }
+            delete aux;
+            return;
+          }
+          int contador = 1;
+          while (aux != NULL && contador < posicion){
+            aux = aux -> sig;
+            ++contador;
+          }
+          if (aux==NULL){
+            cout << "La tarea no existe" << endl;
+            return;
+          }
+          prioridad = aux -> prioridad;
+          descripcion = aux -> descripcion;
+          if(aux -> sig != NULL){
+            aux -> sig -> ant = aux -> ant;
+          }
+          if(aux -> ant != NULL){
+            aux -> ant -> sig = aux -> sig;
+          }
+          if(aux == cola){
+            cola = cola -> ant;
+          }
+          delete aux;
+          insertar(prioridad,nombre,descripcion);
+        }
+
+        void editarPrioridad(int posicion, int prioridad) {
           string nombre, descripcion;
           if(empty()){
             cout << "La lista esta vacia." << endl;
