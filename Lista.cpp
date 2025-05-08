@@ -162,29 +162,29 @@ class Nodo{
               cola=NULL;
             }
             delete aux;
-            return;
+          }else {
+            int contador = 1;
+            while (aux != NULL && contador < posicion){
+              aux = aux -> sig;
+              ++contador;
+            }
+            if (aux==NULL){
+              cout << "La tarea no existe" << endl;
+              return;
+            }
+            prioridad = aux -> prioridad;
+            nombre = aux -> nombre;
+            if(aux -> sig != NULL){
+              aux -> sig -> ant = aux -> ant;
+            }
+            if(aux -> ant != NULL){
+              aux -> ant -> sig = aux -> sig;
+            }
+            if(aux == cola){
+              cola = cola -> ant;
+            }
+            delete aux;
           }
-          int contador = 1;
-          while (aux != NULL && contador < posicion){
-            aux = aux -> sig;
-            ++contador;
-          }
-          if (aux==NULL){
-            cout << "La tarea no existe" << endl;
-            return;
-          }
-          prioridad = aux -> prioridad;
-          nombre = aux -> nombre;
-          if(aux -> sig != NULL){
-            aux -> sig -> ant = aux -> ant;
-          }
-          if(aux -> ant != NULL){
-            aux -> ant -> sig = aux -> sig;
-          }
-          if(aux == cola){
-            cola = cola -> ant;
-          }
-          delete aux;
           insertar(prioridad,nombre,descripcion);
         }
 
@@ -206,29 +206,29 @@ class Nodo{
               cola=NULL;
             }
             delete aux;
-            return;
+          }else {
+            int contador = 1;
+            while (aux != NULL && contador < posicion){
+              aux = aux -> sig;
+              ++contador;
+            }
+            if (aux==NULL){
+              cout << "La tarea no existe" << endl;
+              return;
+            }
+            prioridad = aux -> prioridad;
+            descripcion = aux -> descripcion;
+            if(aux -> sig != NULL){
+              aux -> sig -> ant = aux -> ant;
+            }
+            if(aux -> ant != NULL){
+              aux -> ant -> sig = aux -> sig;
+            }
+            if(aux == cola){
+              cola = cola -> ant;
+            }
+            delete aux;
           }
-          int contador = 1;
-          while (aux != NULL && contador < posicion){
-            aux = aux -> sig;
-            ++contador;
-          }
-          if (aux==NULL){
-            cout << "La tarea no existe" << endl;
-            return;
-          }
-          prioridad = aux -> prioridad;
-          descripcion = aux -> descripcion;
-          if(aux -> sig != NULL){
-            aux -> sig -> ant = aux -> ant;
-          }
-          if(aux -> ant != NULL){
-            aux -> ant -> sig = aux -> sig;
-          }
-          if(aux == cola){
-            cola = cola -> ant;
-          }
-          delete aux;
           insertar(prioridad,nombre,descripcion);
         }
 
@@ -249,29 +249,29 @@ class Nodo{
               cola=NULL;
             }
             delete aux;
-            return;
+          }else {
+            int contador = 1;
+            while (aux != NULL && contador < posicion){
+              aux = aux -> sig;
+              ++contador;
+            }
+            if (aux==NULL){
+              cout << "La tarea no existe" << endl;
+              return;
+            }
+            nombre = aux -> nombre;
+            descripcion = aux -> descripcion;
+            if(aux -> sig != NULL){
+              aux -> sig -> ant = aux -> ant;
+            }
+            if(aux -> ant != NULL){
+              aux -> ant -> sig = aux -> sig;
+            }
+            if(aux == cola){
+              cola = cola -> ant;
+            }
+            delete aux;
           }
-          int contador = 1;
-          while (aux != NULL && contador < posicion){
-            aux = aux -> sig;
-            ++contador;
-          }
-          if (aux==NULL){
-            cout << "La tarea no existe" << endl;
-            return;
-          }
-          nombre = aux -> nombre;
-          descripcion = aux -> descripcion;
-          if(aux -> sig != NULL){
-            aux -> sig -> ant = aux -> ant;
-          }
-          if(aux -> ant != NULL){
-            aux -> ant -> sig = aux -> sig;
-          }
-          if(aux == cola){
-            cola = cola -> ant;
-          }
-          delete aux;
           insertar(prioridad,nombre,descripcion);
         }
 

@@ -66,15 +66,15 @@ Nodo editarTarea(Nodo a) {
         return a;
     }
     int b;
-    do {
+
         cout << "\nSelecciona una opcion:" << endl;
         cout << "1. Editar prioridad" << endl;
         cout << "2. Editar nombre" << endl;
         cout << "3. Editar descripcion" << endl;
-        cout << "4. Regresar" << endl;
+        cout << "0. Regresar" << endl;
         cout << "Opcion:  ";
         cin >> b;
-        while (cin.fail() || b > 4 || b < 1){
+        while (cin.fail() || b > 3 || b <0){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << "Valor invalido. Intente de nuevo: " ;
@@ -104,13 +104,13 @@ Nodo editarTarea(Nodo a) {
                 getline(cin, descripcion, '\n');
                 a.editarDescripcion(posicion, descripcion);
                 break;
-            case 4:
+            case 0:
                 return a;
             default:
                 cout << "Valor invalido." << endl;
                 break;
         }
-    }while (b != 4);
+
     return a;
 }
 
@@ -169,10 +169,10 @@ void menu(Nodo nodo){
         cout << "4. Eliminar tarea" << endl;
         cout << "5. Importar tareas" << endl;
         cout << "6. Exportar tareas" << endl;
-        cout << "7. Salir" << endl;
+        cout << "0. Salir" << endl;
         cout << "Opcion:  ";
         cin >> a;
-        while (cin.fail() || a > 7 || a < 1){
+        while (cin.fail() || a > 6 || a < 0){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(),'\n');
             cout << "Valor invalido. Intente de nuevo: " ;
@@ -197,14 +197,14 @@ void menu(Nodo nodo){
             case 6:
                 guardarEnArchivo(nodo);
                 break;
-            case 7:
+            case 0:
                 cout << "Cerrando el sistema." << endl;
                 return;
             default:
                 cout << "Valor invalido." << endl;
                 break;
         }
-    }while (a != 7);
+    }while (a != 0);
 }
 
 int main() {
